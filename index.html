@@ -390,8 +390,8 @@
       <p><strong>PartnerCode</strong> (string) : Provided by Pasarpolis for Authentication.</p>
       <p><strong>PartnerSecret</strong> (string) : Secret Key provided by Pasarpolis.</p>
       <p><strong>Host</strong> (string) : Fully qualified domain name as specified below.</p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;Sandbox: https://integrations-sandbox.pasarpolis.com</p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;Production: https://integrations.pasarpolis.com</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;Sandbox: https://integrations-sandbox.pasarpolis.io</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;Production: https://integrations.pasarpolis.io</p>
       <aside class="notice">
         Initialize the client before calling any functionality of SDK else it will raise error.<br />
         Please make sure you initialize client only once i.e. at start of your app else it will raise error.
@@ -678,7 +678,7 @@ APP-000000224
 
 </span></code></pre>
       <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">sdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'pasarpolis-sdk-nodejs'</span><span class="p">)</span>
-<span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">sdk</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s2">"DummyPartnerCode"</span><span class="p">,</span> <span class="s2">"DummyPartnerSecret"</span><span class="p">,</span> <span class="s2">"https://integrations.pasarpolis.com"</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">sdk</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="s2">"DummyPartnerCode"</span><span class="p">,</span> <span class="s2">"DummyPartnerSecret"</span><span class="p">,</span> <span class="s2">"https://integrations.pasarpolis.io"</span><span class="p">)</span>
 
 <span class="kr">const</span> <span class="nx">getPolicyStatus</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">getPolicyStatus</span><span class="p">(</span><span class="s2">"48fc2801e487af79ef311621f63e4133c"</span><span class="p">)</span>
 
@@ -738,11 +738,11 @@ APP-000000224
         <tbody>
           <tr>
             <td>Sandbox</td>
-            <td>https://integrations-sandbox.pasarpolis.com</td>
+            <td>https://integrations-sandbox.pasarpolis.io</td>
           </tr>
           <tr>
             <td>Production</td>
-            <td>https://integrations.pasarpolis.com</td>
+            <td>https://integrations.pasarpolis.io</td>
           </tr>
         </tbody>
       </table>
@@ -1112,7 +1112,7 @@ APP-000000224
         <li><strong>timestamp</strong>: Current time in RFC2616 format. Eg: 'Mon, 16 Jul 2018 08:27:53 GMT'. Also send
           the date in 'X-PP-Date' header.</li>
         <li><strong>api_path</strong>: Part of the URL after base domain and without query string (in lower case only).
-          Eg: For http://sandbox-integrations.pasarpolis.com/api/v2/policydetails/?id=mypolicyid, api_path is
+          Eg: For http://sandbox-integrations.pasarpolis.io/api/v2/policydetails/?id=mypolicyid, api_path is
           /api/v2/policydetails/</li>
       </ul>
       <p>Calculate hmac for partner_secret ( received from PasarPolis ) and string_to_sign using sha256.</p>
