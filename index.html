@@ -374,6 +374,9 @@
         </ul>
       </li>
       <li>
+        <a href="#webhook" class="toc-h1 toc-link" data-title="Webhook">Webhook</a>
+      </li>
+      <li>
         <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
       </li>
       <li>
@@ -1474,6 +1477,102 @@ APP-000000224
         </tbody>
       </table>
 
+      <h1 id='webhook'>Webhook</h1>
+      <h3>Possible Statuses</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Claim Status</th>
+            <th>Status Code</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Initiated</td>
+            <td>initiated</td>
+            <td>claim has been created at our end.</td>
+          </tr>
+          <tr>
+            <td>Document Received</td>
+            <td>document_received</td>
+            <td>claim documents have been received at our end.</td>
+          </tr>
+          <tr>
+            <td>Document Complete</td>
+            <td>document_complete</td>
+            <td>claim documents have been analysed at our end.</td>
+          </tr>
+          <tr>
+            <td>Document Verified</td>
+            <td>document_verified</td>
+            <td>claim documents have been verified at our end.</td>
+          </tr>
+          <tr>
+            <td>Document Reprocess</td>
+            <td>reprocess</td>
+            <td>One or more document has been rejected at end.</td>
+          </tr>
+          <tr>
+            <td>Claim Pending Approval From Pasarpolis</td>
+            <td>claim_pending_from_pasarpolis</td>
+            <td>claim is in processing and amount has been calculated</td>
+          </tr>
+          <tr>
+            <td>Claim Accepted</td>
+            <td>claim_accepted</td>
+            <td>claim has been accepted at our end.</td>
+          </tr>
+          <tr>
+            <td>Claim Rejected</td>
+            <td>claim_rejected</td>
+            <td>Claim has been rejected at our end.</td>
+          </tr>
+          <tr>
+            <td>Payment Pending</td>
+            <td>claim_payment_pending</td>
+            <td>claim payment process has been initiated.</td>
+          </tr>
+          <tr>
+            <td>Payment Triggered</td>
+            <td>claim_payment_triggered</td>
+            <td>claim payment has been triggered from our end.</td>
+          </tr>
+          <tr>
+            <td>Payment Failed</td>
+            <td>claim_payment_failed</td>
+            <td>claim payment got failed at our end.</td>
+          </tr>
+          <tr>
+            <td>Payment Paid</td>
+            <td>claim_payment_paid</td>
+            <td>claim payment has been made.</td>
+          </tr>
+          <tr>
+            <td>Settled</td>
+            <td>settled</td>
+            <td>claim has been settled.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h1>Request Payload</h1>
+      <h3>For Claim Status <code>claim_rejected</code></h3>
+      <blockquote>
+        <p>Sample URL Request body</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
+
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"partner_reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">" "</span><span class="w">
+        </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-xxxxxxxxxx"</span><span class="w">
+        </span><span class="s2">"claim_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initiated"</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span><span class="w">
+          </span><span class="s2">"reject_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""claim coverage date has ended"</span><span class="w">
+        </span><span class="s2">}</span><span class="w"> </span><span class="s2"></span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span></code></pre>
+          
 
       <h1 id='errors'>Errors</h1>
       <p>Pasarpolis SDK uses the following error codes:</p>
