@@ -311,7 +311,7 @@
         </ul>
       </li>
       <li>
-        <a href="#api-references" class="toc-h1 toc-link" data-title="API References">API References Policies</a>
+        <a href="#api-references" class="toc-h1 toc-link" data-title="API References">API References</a>
         <ul class="toc-list-h2">
           <li>
             <a href="#policies" class="toc-h2 toc-link" data-title="URLs">Policies</a>
@@ -374,7 +374,7 @@
         </ul>
       </li>
       <li>
-        <a href="#webhook" class="toc-h1 toc-link" data-title="Webhook">Webhook</a>
+        <a href="#webhook" class="toc-h1 toc-link" data-title="Webhook">Claims Webhook</a>
         <ul class="toc-list-h2">
           <li>
             <a href="#possible-statuses" class="toc-h2 toc-link" data-title="Possible Statuses">Possible Statuses</a>
@@ -1127,11 +1127,11 @@ APP-000000224
         <tbody>
           <tr>
             <td>Sandbox</td>
-            <td>https://claims-sandbox.pasarpolis.io</td>
+            <td>https://integrations-sandbox.pasarpolis.io</td>
           </tr>
           <tr>
             <td>Production</td>
-            <td>https://claims.pasarpolis.io</td>
+            <td>https://integrations.pasarpolis.io</td>
           </tr>
         </tbody>
       </table>
@@ -1147,13 +1147,13 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v2/get-benefit-list/</td>
+            <td>/api/v3/claims/benefits/list/</td>
             <td>GET</td>
             <td>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process they need to send us the benefit_id provided in the response of this api with the application number.</td>
             <td>click <a href="#get-benefit-list">here</a></td>
           </tr>
           <tr>
-            <td>/api/v2/get-claim-documents/</td>
+            <td>/api/v3/claims/benefit/{{benefit_id}}/documents/</td>
             <td>GET</td>
             <td>This API will list all the file documents along with their validations if any, their requirements if any</td>
             <td>click <a href="#get-claim-documents">here</a></td>
@@ -1165,19 +1165,19 @@ APP-000000224
             <td>click <a href="#upload-claim-documents">here</a></td>
           </tr>
           <tr>
-            <td>/api/v2/create-claim-with-documents/</td>
+            <td>/api/v3/claims/create_with_documents/</td>
             <td>POST</td>
             <td>This API will allows users to create claim on our portal.</td>
             <td>click <a href="#create-claim">here</a></td>
           </tr>
           <tr>
-            <td>/api/v2/update-claim-documents/</td>
+            <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
             <td>This Api will update all rejected documents in one go. if this api returns 200 then the claim must be back in document_complete state.</td>
             <td>click <a href="#update-claim-documents">here</a></td>
           </tr>
           <tr>
-            <td>/api/v2/claim-details/</td>
+            <td>/api/v3/claims/{{claim_id}}/details/</td>
             <td>GET</td>
             <td>This Api will give you the current claim status along with other details.</td>
             <td>click <a href="#claim-details-api">here</a></td>
@@ -1232,7 +1232,7 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v2/get-benefit-list/</td>
+            <td>/api/v3/claims/benefits/list/</td>
             <td>GET</td>
             <td>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process they need to send us the benefit_id provided in the response of this api with the application number.</td>
           </tr>
@@ -1298,7 +1298,7 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v2/get-claim-documents/</td>
+            <td>/api/v3/claims/benefit/{{benefit_id}}/documents/</td>
             <td>GET</td>
             <td>This API will list all the file documents along with their validations if any, their requirements if any</td>
           </tr>
@@ -1399,7 +1399,7 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v2/create-claim/</td>
+            <td>/api/v3/claims/create_with_documents/</td>
             <td>POST</td>
             <td>This API will allows users to create claim on our portal.</td>
           </tr>
@@ -1440,7 +1440,7 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v2/update-claim-documents/</td>
+            <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
             <td>This Api will update all rejected documents in one go. if this api returns 200 then the claim must be back in document_complete state.</td>
           </tr>
@@ -1455,7 +1455,7 @@ APP-000000224
       <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
 </span><span class="p"></span><span class="w">
-    </span><span class="s2">/api/v2/claim/details/?claim_id=KLM-2008000001</span><span class="w"> </span><span class="w">
+    </span><span class="s2">/api/v3/claims/{{claim_id}}/details/</span><span class="w"> </span><span class="w">
 </span><span class="p"></span><span class="w">
 </span></code></pre>
       <blockquote>
@@ -1481,7 +1481,7 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v2/claim/details/</td>
+            <td>/api/v3/claims/{{claim_id}}/details/</td>
             <td>GET</td>
             <td>This Api will give you the current claim status along with other details.</td>
           </tr>
