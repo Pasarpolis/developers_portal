@@ -285,7 +285,8 @@
     </span>
   </a>
   <div class="toc-wrapper">
-    <img src="images/pp-logo-white-yellow-cap.png" class="logo" alt="Logo" style="width: 170px;margin: 0 auto;padding-top: 10px;"/>
+    <img src="images/pp-logo-white-yellow-cap.png" class="logo" alt="Logo"
+      style="width: 170px;margin: 0 auto;padding-top: 10px;" />
     <div class="lang-selector">
       <a href="#" data-language-name="ruby">ruby</a>
       <a href="#" data-language-name="python">python</a>
@@ -352,28 +353,25 @@
                 <a href="#api-routes-claims" class="toc-h2 toc-link" data-title="API Routes">API Routes</a>
               </li>
               <li>
-                <a href="#get-benefit-list" class="toc-h2 toc-link"
-                  data-title="Benefit List API">Benefit List API</a>
+                <a href="#get-benefit-list" class="toc-h2 toc-link" data-title="Benefit List API">Benefit List API</a>
               </li>
               <li>
-                <a href="#get-claim-documents" class="toc-h2 toc-link"
-                  data-title="Get Claim Documents API">Get Claim Documents API</a>
+                <a href="#get-claim-documents" class="toc-h2 toc-link" data-title="Get Claim Documents API">Get Claim
+                  Documents API</a>
               </li>
               <!-- <li>
                 <a href="#upload-claim-documents" class="toc-h2 toc-link"
                   data-title="Upload Claim Document API">Upload Claim Document API</a>
               </li> -->
               <li>
-                <a href="#create-claim" class="toc-h2 toc-link"
-                  data-title="Benefit List API">Create Claim API</a>
+                <a href="#create-claim" class="toc-h2 toc-link" data-title="Benefit List API">Create Claim API</a>
               </li>
               <li>
-                <a href="#update-claim-documents" class="toc-h2 toc-link"
-                  data-title="Update Claim Documents API">Update Claim Documents API</a>
+                <a href="#update-claim-documents" class="toc-h2 toc-link" data-title="Update Claim Documents API">Update
+                  Claim Documents API</a>
               </li>
               <li>
-                <a href="#claim-details" class="toc-h2 toc-link"
-                  data-title="Claim Details API">Claim Details API</a>
+                <a href="#claim-details" class="toc-h2 toc-link" data-title="Claim Details API">Claim Details API</a>
               </li>
             </ul>
           </li>
@@ -384,6 +382,10 @@
         <ul class="toc-list-h2">
           <li>
             <a href="#possible-statuses" class="toc-h2 toc-link" data-title="Possible Statuses">Possible Statuses</a>
+          </li>
+          <li>
+            <a href="#possible-claim-error-codes" class="toc-h2 toc-link"
+              data-title="Possible Claim Error Codes">Possible Error Codes</a>
           </li>
           <li>
             <a href="#webhook-request-payload" class="toc-h2 toc-link" data-title="Request Payload">Request Payload</a>
@@ -406,7 +408,8 @@
     <div class="content">
       <h1 id='introduction'>Introduction</h1>
       <p>Welcome to Pasarpolis developer guide. You can use our API to access API endpoints for policy.</p>
-      <p>We have language bindings in Shell, Ruby, Java, Go, PHP and Python! You can view code examples in the dark area to the right,
+      <p>We have language bindings in Shell, Ruby, Java, Go, PHP and Python! You can view code examples in the dark area
+        to the right,
         and you can switch the programming language of the examples with the tabs in the top right.</p>
       <h1 id='authentication'>Authentication</h1>
       <p>We use HMAC based authetication behind the scenes.</p>
@@ -442,7 +445,7 @@
 
 </code></pre>
 
-<pre class="highlight php tab-php"><code>
+      <pre class="highlight php tab-php"><code>
   <span class="nx">require_once</span><span class="p">(</span><span class="s1">'pasarpolis/client.php'</span><span class="p">)</span>
   <span class="kr">$</span><span class="nx">clientObj</span> <span class="o">=</span> <span class="nx">new client</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">PartnerCode</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">PartnerSecret</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">HOST</span><span class="o">&gt;</span><span class="p">)</span>
 </code></pre>
@@ -647,7 +650,7 @@ APP-000000224
 
 </code></pre>
 
-<pre class="highlight php tab-php"><code><span class="nx">require_once</span><span class="p">(</span><span class="s1">'pasarpolis/client.php'</span><span class="p">)</span>
+      <pre class="highlight php tab-php"><code><span class="nx">require_once</span><span class="p">(</span><span class="s1">'pasarpolis/client.php'</span><span class="p">)</span>
 
   <span class="kr">$policyObj</span> <span class="o">=</span> <span class="s2"><span class="kt">new</span> <span class="s2">policy($params);</span></span>
   <span class="kr">$params1</span> <span class="o">=</span> <span class="s2">Array();</span>
@@ -749,7 +752,7 @@ APP-000000224
 
 
 </code></pre>
-<pre class="highlight php tab-php"><code>
+      <pre class="highlight php tab-php"><code>
   <span class="nx">require_once</span><span class="p">(</span><span class="s1">'pasarpolis/client.php'</span><span class="p">)</span>
   <span class="kr">$</span><span class="nx">refs</span> <span class="o">=</span> <span class="nx">Array</span><span class="p">(</span><span class="nx">"d77d436ad9485b86b8a0c18c3d2f70f77a10c43d"</span><span class="p">)</span>
   <span class="kr">$</span><span class="nx">policyObj</span> <span class="o">=</span> <span class="ss">new</span> policy<span class="p">(</span><span class="s1">$params</span><span class="p">)</span>
@@ -1155,13 +1158,16 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/benefits/list/</td>
             <td>GET</td>
-            <td>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process they need to send us the benefit_id provided in the response of this api with the application number.</td>
+            <td>This Api will help users to identify the benefits on which they can claim. As a part of claim creation
+              process they need to send us the benefit_id provided in the response of this api with the application
+              number.</td>
             <td>click <a href="#get-benefit-list">here</a></td>
           </tr>
           <tr>
             <td>/api/v3/claims/benefit/{{benefit_id}}/documents/</td>
             <td>GET</td>
-            <td>This API will list all the benfit documents along with the validation and type of the document required</td>
+            <td>This API will list all the benfit documents along with the validation and type of the document required
+            </td>
             <td>click <a href="#get-claim-documents">here</a></td>
           </tr>
           <!-- <tr>
@@ -1179,7 +1185,8 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
-            <td>This API will allow user to update the claims from reprocess state to document_complete in case of any document which was rejected while verification.</td>
+            <td>This API will allow user to update the claims from reprocess state to document_complete in case of any
+              document which was rejected while verification.</td>
             <td>click <a href="#update-claim-documents">here</a></td>
           </tr>
           <tr>
@@ -1192,13 +1199,12 @@ APP-000000224
       </table>
       <h2 id='get-benefit-list'>Benefit List API</h2>
       <blockquote>
-        <p>Sample JSON Request Body</p>
+        <p>Sample Request Query</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-00012339"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_detailed"</span><span class="p">:</span><span class="s2">true</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre>
+      <pre class="highlight json tab-json"><code><span class="p">/api/v3/claims/benefits/list/?application_number=APP-000655580&is_detailed=true</span><span class="w">
+
+        <span class="w">
+        </span></code></pre>
       <blockquote>
         <p>Sample Response Structure:</p>
       </blockquote>
@@ -1230,7 +1236,9 @@ APP-000000224
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
-      <p>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process they need to send us the benefit_id provided in the response of this api with the application number.</p>      </p>
+      <p>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process
+        they need to send us the benefit_id provided in the response of this api with the application number.</p>
+      </p>
       <h3 id='definition'>Definition</h3>
       <table>
         <thead>
@@ -1244,11 +1252,13 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/benefits/list/</td>
             <td>GET</td>
-            <td>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process they need to send us the benefit_id provided in the response of this api with the application number.</td>
+            <td>This Api will help users to identify the benefits on which they can claim. As a part of claim creation
+              process they need to send us the benefit_id provided in the response of this api with the application
+              number.</td>
           </tr>
         </tbody>
       </table>
-      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <h3 id='json-request-body-data'>JSON Request Query Data:</h3>
       <p><strong>Main attribute</strong></p>
       <table>
         <thead>
@@ -1256,7 +1266,6 @@ APP-000000224
             <th>JSON Attribute</th>
             <th>Definition</th>
             <th>Required</th>
-            <th>Validation</th>
           </tr>
         </thead>
         <tbody>
@@ -1264,7 +1273,11 @@ APP-000000224
             <td>application_no</td>
             <td>&quot;Application Number for policy&quot;</td>
             <td>Yes</td>
-            <td></td>
+          </tr>
+          <tr>
+            <td>is_detailed</td>
+            <td>&quot;is_detailed flag is responsible for sending the benefit docs along with benefit&quot;</td>
+            <td>No</td>
           </tr>
         </tbody>
       </table>
@@ -1279,7 +1292,7 @@ APP-000000224
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
-        <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+      <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ktp"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">null</span><span class="p">,</span><span class="w">
@@ -1296,7 +1309,7 @@ APP-000000224
 </span><span class="p">}]</span>
     <span class="w">
     </span></code></pre>
-    <p>This API will list all the benfit documents along with the validation and type of the document required.</p>
+      <p>This API will list all the benfit documents along with the validation and type of the document required.</p>
       <h3 id='definition'>Definition</h3>
       <table>
         <thead>
@@ -1310,7 +1323,8 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/benefit/{{benefit_id}}/documents/</td>
             <td>GET</td>
-            <td>This API will list all the benfit documents along with the validation and type of the document required.</td>
+            <td>This API will list all the benfit documents along with the validation and type of the document required.
+            </td>
           </tr>
         </tbody>
       </table>
@@ -1464,14 +1478,16 @@ APP-000000224
       <blockquote>
         <p>Sample URL Request body</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2008000001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ktp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://updated-ktp.png"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"chronology"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span
+        class="s2">"KLM-2008000001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ktp"</span><span class="p">:</span><span class="w"> </span><span
+        class="s2">"https://updated-ktp.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"chronology"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello
+        world"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+      </span></code></pre>
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
@@ -1482,7 +1498,8 @@ APP-000000224
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
-      <p>TThis API will allow user to update the claims from reprocess state to document_complete in case of any document which was rejected while verification.</p>
+      <p>TThis API will allow user to update the claims from reprocess state to document_complete in case of any
+        document which was rejected while verification.</p>
       <h3 id='definition-2'>Definition</h3>
       <table>
         <thead>
@@ -1496,7 +1513,8 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
-            <td>TThis API will allow user to update the claims from reprocess state to document_complete in case of any document which was rejected while verification.</td>
+            <td>TThis API will allow user to update the claims from reprocess state to document_complete in case of any
+              document which was rejected while verification.</td>
           </tr>
         </tbody>
       </table>
@@ -1535,12 +1553,11 @@ APP-000000224
       <blockquote>
         <p>Sample URL Request query params</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
-</span><span class="p"></span><span class="w">
-    </span><span class="s2">/api/v3/claims/{{claim_id}}/details/</span><span class="w"> </span><span class="w">
-</span><span class="p"></span><span class="w">
-</span></code></pre>
+      </span><span class="p"></span><span class="w">
+      </span><span class="s2">/api/v3/claims/{{claim_id}}/details/</span><span class="w"> </span><span class="w">
+      </span><span class="p"></span><span class="w">
+      </span></code></pre>
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
@@ -1650,6 +1667,138 @@ APP-000000224
         </tbody>
       </table>
 
+      <h1 id="possible-claim-error-codes">Possible Error Codes</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Error Code</th>
+            <th>Error</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CLAIM_INTEGRATION_101</td>
+            <td>Claim already present for given reference</td>
+          </tr>
+          <tr>
+            <td>BENEFIT_104</td>
+            <td>benefit slug is not provided</td>
+          </tr>
+          <tr>
+            <td>CLAIM_106</td>
+            <td>Application Number is required</td>
+          </tr>
+          <tr>
+            <td>CLAIM_119</td>
+            <td>Claim Documents are mandatory</td>
+          </tr>
+          <tr>
+            <td>CLAIM_120</td>
+            <td>Claim creation date is mandatory</td>
+          </tr>
+          <tr>
+            <td>CLAIM_139</td>
+            <td>Invalid Application Number provided</td>
+          </tr>
+          <tr>
+            <td>BENEFIT_103</td>
+            <td>Package Code is not provided</td>
+          </tr>
+          <tr>
+            <td>CLAIM_147</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>CLAIM_147</td>
+            <td>Claim can be created only after < X > days since coverage end date</td>
+          </tr>
+          <tr>
+            <td>CLAIM_147</td>
+            <td>Claim cannot be created after < X > days since coverage end date</td>
+          </tr>
+          <tr>
+            <td>CLAIM_122</td>
+            <td>Application no is not valid for this benefit</td>
+          </tr>
+          <tr>
+            <td>POLICY_DETAIL_112</td>
+            <td>Product key not provided in policy detail</td>
+          </tr>
+          <tr>
+            <td>POLICY_DETAIL_119</td>
+            <td>Package code not provided in policy detail</td>
+          </tr>
+          <tr>
+            <td>CLAIM_123</td>
+            <td>Future date claim cannot be created</td>
+          </tr>
+          <tr>
+            <td>CLAIM_101</td>
+            <td>Invalid benefit provided</td>
+          </tr>
+          <tr>
+            <td>CLAIM_110</td>
+            <td>Salah satu klaim Anda sudah dalam status pemrosesan sehingga Anda tidak dapat membuat yang baru</td>
+          </tr>
+          <tr>
+            <td>CLAIM_103</td>
+            <td>Klaim Anda untuk manfaat ini telah melebihi batas pengajuan yang ditentukan</td>
+          </tr>
+          <tr>
+            <td>CLAIM_102</td>
+            <td>Klaim Anda untuk manfaat ini telah melebihi batas pengajuan yang ditentukan</td>
+          </tr>
+          <tr>
+            <td>CLAIM_106</td>
+            <td>Application Number is required</td>
+          </tr>
+          <tr>
+            <td>CLAIM_108</td>
+            <td>batas klaim maksimum untuk grup manfaat ini telah mencapai</td>
+          </tr>
+          <tr>
+            <td>CLAIM_105</td>
+            <td>Policy dibatalkan</td>
+          </tr>
+          <tr>
+            <td>BENEFIT_104</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>CLAIM_120</td>
+            <td>benefit slug is not provided</td>
+          </tr>
+          <tr>
+            <td>BENEFIT_102</td>
+            <td>product key is not provided</td>
+          </tr>
+          <tr>
+            <td>CLAIM_119</td>
+            <td>Claim Documents are mandatory</td>
+          </tr>
+          <tr>
+            <td>CLAIM_120</td>
+            <td>Claim creation date is mandatory</td>
+          </tr>
+          <tr>
+            <td>OPS_CLAIM_102</td>
+            <td>Incorrect format of given date range, should be YYYY-MM-DD hh:mm:ss</td>
+          </tr>
+          <tr>
+            <td>CLAIM_121</td>
+            <td>Claim creation date is not in valid format</td>
+          </tr>
+          <tr>
+            <td>CLAIM_123</td>
+            <td>Future date claim cannot be created</td>
+          </tr>
+          <tr>
+            <td>FORM_101</td>
+            <td>Invalid form name provided</td>
+          </tr>
+        </tbody>
+      </table>
+
       <h1 id='webhook-request-payload'>Request Payload</h1>
       <h3>For Claim Status <code>claim_rejected</code></h3>
       <blockquote>
@@ -1667,44 +1816,45 @@ APP-000000224
     </span><span class="p">}</span><span class="w">
     </span></code></pre>
 
-    <table>
-      <thead>
-        <tr>
-          <th>JSON Attribute</th>
-          <th>Definition</th>
-          <th>Required</th>
-          <th>Validation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>partner_reference_id</td>
-          <td><code>order_number</code> attached with the policy</td>
-          <td>Yes</td>
-          <td>Format: - <code>pp-xxx..</code></td>
-        </tr>
-        <tr>
-          <td>claim_number</td>
-          <td>Identification number of the claim</td>
-          <td>Yes</td>
-          <td>Format : - <code>KLM-2006100212</code></td>
-        </tr>
-        <tr>
-          <td>data</td>
-          <td>It will contain information about the claim depending on its current status</td>
-          <td>Yes</td>
-          <td>will be a blank dictionary at all claim statues except <code>claim_rejected</code>, <code>reprocess</code> , <code>claim_payment_paid</code> and <code>settled</code></td>
-        </tr>
-        <tr>
-          <td>reject_reason</td>
-          <td>It contain the reason behind the claim rejection.</td>
-          <td>Yes</td>
-          <td>mandatory if the status is <code>claim_rejected</code></td>
-        </tr>
-      </tbody>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>partner_reference_id</td>
+            <td><code>order_number</code> attached with the policy</td>
+            <td>Yes</td>
+            <td>Format: - <code>pp-xxx..</code></td>
+          </tr>
+          <tr>
+            <td>claim_number</td>
+            <td>Identification number of the claim</td>
+            <td>Yes</td>
+            <td>Format : - <code>KLM-2006100212</code></td>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>It will contain information about the claim depending on its current status</td>
+            <td>Yes</td>
+            <td>will be a blank dictionary at all claim statues except <code>claim_rejected</code>,
+              <code>reprocess</code> , <code>claim_payment_paid</code> and <code>settled</code></td>
+          </tr>
+          <tr>
+            <td>reject_reason</td>
+            <td>It contain the reason behind the claim rejection.</td>
+            <td>Yes</td>
+            <td>mandatory if the status is <code>claim_rejected</code></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h2>For Claim Status <code>claim_payment_paid</code> or <code>settled</code></h2>
+      <h2>For Claim Status <code>claim_payment_paid</code> or <code>settled</code></h2>
       <blockquote>
         <p>Sample URL Request body</p>
       </blockquote>
@@ -1719,44 +1869,45 @@ APP-000000224
         </span><span class="s2">}</span><span class="w"> </span><span class="s2"></span><span class="w">
     </span><span class="p">}</span><span class="w">
     </span></code></pre>
-    <table>
-      <thead>
-        <tr>
-          <th>JSON Attribute</th>
-          <th>Definition</th>
-          <th>Required</th>
-          <th>Validation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>partner_reference_id</td>
-          <td><code>order_number</code> attached with the policy</td>
-          <td>Yes</td>
-          <td>Format: - <code>pp-xxx..</code></td>
-        </tr>
-        <tr>
-          <td>claim_number</td>
-          <td>Identification number of the claim</td>
-          <td>Yes</td>
-          <td>Format : - <code>KLM-2006100212</code></td>
-        </tr>
-        <tr>
-          <td>data</td>
-          <td>It will contain information about the claim depending on its current status</td>
-          <td>Yes</td>
-          <td>will be a blank dictionary at all claim statues except <code>claim_rejected</code>, <code>reprocess</code> , <code>claim_payment_paid</code> and <code>settled</code></td>
-        </tr>
-        <tr>
-          <td>paid_claim_amount</td>
-          <td>It contain the claim amount that has been paid to the user</td>
-          <td>Yes</td>
-          <td>mandatory if the status is <code>claim_payment_paid</code> or <code>settled</code></td>
-        </tr>
-      </tbody>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>partner_reference_id</td>
+            <td><code>order_number</code> attached with the policy</td>
+            <td>Yes</td>
+            <td>Format: - <code>pp-xxx..</code></td>
+          </tr>
+          <tr>
+            <td>claim_number</td>
+            <td>Identification number of the claim</td>
+            <td>Yes</td>
+            <td>Format : - <code>KLM-2006100212</code></td>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>It will contain information about the claim depending on its current status</td>
+            <td>Yes</td>
+            <td>will be a blank dictionary at all claim statues except <code>claim_rejected</code>,
+              <code>reprocess</code> , <code>claim_payment_paid</code> and <code>settled</code></td>
+          </tr>
+          <tr>
+            <td>paid_claim_amount</td>
+            <td>It contain the claim amount that has been paid to the user</td>
+            <td>Yes</td>
+            <td>mandatory if the status is <code>claim_payment_paid</code> or <code>settled</code></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h2>For Claim Status <code>reprocess</code></h2>
+      <h2>For Claim Status <code>reprocess</code></h2>
       <blockquote>
         <p>Sample URL Request body</p>
       </blockquote>
@@ -1772,49 +1923,51 @@ APP-000000224
     </span><span class="p">}</span><span class="w">
     </span></code></pre>
 
-    <table>
-      <thead>
-        <tr>
-          <th>JSON Attribute</th>
-          <th>Definition</th>
-          <th>Required</th>
-          <th>Validation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>partner_reference_id</td>
-          <td><code>order_number</code> attached with the policy</td>
-          <td>Yes</td>
-          <td>Format: - <code>pp-xxx..</code></td>
-        </tr>
-        <tr>
-          <td>claim_number</td>
-          <td>Identification number of the claim</td>
-          <td>Yes</td>
-          <td>Format : - <code>KLM-2006100212</code></td>
-        </tr>
-        <tr>
-          <td>data</td>
-          <td>It will contain information about the claim depending on its current status</td>
-          <td>Yes</td>
-          <td>will be a blank dictionary at all claim statues except <code>claim_rejected</code>, <code>reprocess</code> , <code>claim_payment_paid</code> and <code>settled</code></td>
-        </tr>
-        <tr>
-          <td>attributes</td>
-          <td>It will come in case of claim document rejection.each element of the array uniquely identifies the document that has been rejected.</td>
-          <td>Yes</td>
-          <td>must be from the set of document supported by the product</td>
-        </tr>
-      </tbody>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>partner_reference_id</td>
+            <td><code>order_number</code> attached with the policy</td>
+            <td>Yes</td>
+            <td>Format: - <code>pp-xxx..</code></td>
+          </tr>
+          <tr>
+            <td>claim_number</td>
+            <td>Identification number of the claim</td>
+            <td>Yes</td>
+            <td>Format : - <code>KLM-2006100212</code></td>
+          </tr>
+          <tr>
+            <td>data</td>
+            <td>It will contain information about the claim depending on its current status</td>
+            <td>Yes</td>
+            <td>will be a blank dictionary at all claim statues except <code>claim_rejected</code>,
+              <code>reprocess</code> , <code>claim_payment_paid</code> and <code>settled</code></td>
+          </tr>
+          <tr>
+            <td>attributes</td>
+            <td>It will come in case of claim document rejection.each element of the array uniquely identifies the
+              document that has been rejected.</td>
+            <td>Yes</td>
+            <td>must be from the set of document supported by the product</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <h1 id='webhook-response'>Response Body JSON</h1>
-    <h2>If the response status code is 200:</h2>
-    <blockquote>
-      <p>Sample URL Response body for status code 200</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
+      <h1 id='webhook-response'>Response Body JSON</h1>
+      <h2>If the response status code is 200:</h2>
+      <blockquote>
+        <p>Sample URL Response body for status code 200</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
   </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">200</span><span class="w">
@@ -1822,30 +1975,30 @@ APP-000000224
   </span><span class="p">}</span><span class="w">
   </span></code></pre>
 
-  <table>
-    <thead>
-      <tr>
-        <th>JSON Attribute</th>
-        <th>Definition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>status_code</td>
-        <td>Status Code</td>
-      </tr>
-      <tr>
-        <td>message</td>
-        <td>Response Message</td>
-      </tr>
-    </tbody>
-  </table>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>status_code</td>
+            <td>Status Code</td>
+          </tr>
+          <tr>
+            <td>message</td>
+            <td>Response Message</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <h2>If the response status code is 400:</h2>
-    <blockquote>
-      <p>Sample URL Response body for status code 400</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
+      <h2>If the response status code is 400:</h2>
+      <blockquote>
+        <p>Sample URL Response body for status code 400</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
   </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">400</span><span class="w">
@@ -1853,30 +2006,30 @@ APP-000000224
   </span><span class="p">}</span><span class="w">
   </span></code></pre>
 
-  <table>
-    <thead>
-      <tr>
-        <th>JSON Attribute</th>
-        <th>Definition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>status_code</td>
-        <td>Status Code</td>
-      </tr>
-      <tr>
-        <td>message</td>
-        <td>Response Message</td>
-      </tr>
-    </tbody>
-  </table>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>status_code</td>
+            <td>Status Code</td>
+          </tr>
+          <tr>
+            <td>message</td>
+            <td>Response Message</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <h2>If the response status code is 500:</h2>
-    <blockquote>
-      <p>Sample URL Response body for status code 500</p>
-    </blockquote>
-    <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
+      <h2>If the response status code is 500:</h2>
+      <blockquote>
+        <p>Sample URL Response body for status code 500</p>
+      </blockquote>
+      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
   </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">500</span><span class="w">
@@ -1884,25 +2037,25 @@ APP-000000224
   </span><span class="p">}</span><span class="w">
   </span></code></pre>
 
-  <table>
-    <thead>
-      <tr>
-        <th>JSON Attribute</th>
-        <th>Definition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>status_code</td>
-        <td>Status Code</td>
-      </tr>
-      <tr>
-        <td>message</td>
-        <td>Response Message</td>
-      </tr>
-    </tbody>
-  </table>
-          
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>status_code</td>
+            <td>Status Code</td>
+          </tr>
+          <tr>
+            <td>message</td>
+            <td>Response Message</td>
+          </tr>
+        </tbody>
+      </table>
+
 
       <h1 id='errors'>Errors</h1>
       <p>Pasarpolis SDK uses the following error codes:</p>
