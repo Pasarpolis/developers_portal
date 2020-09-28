@@ -1209,28 +1209,103 @@ APP-000000224
         <p>Sample Response Structure:</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
-    </span><span class="s2">"benefit_group_id"</span><span class="p">:</span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168cf"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"benefit_group_name"</span><span class="p">:</span><span class="s2">"Death And Permanent Disability"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"benefit_group_id"</span><span class="p">:</span><span class="s2">"d6e820dd-1dc4-4c33-ac44-8212a619f940"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"benefit_group_name"</span><span class="p">:</span><span class="s2">"Asuransi Kredit"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"benefits": [{</span><span class="w">
-      </span><span class="s2">"benefit_id"</span><span class="p">:</span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168df"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"benefit_id"</span><span class="p">:</span><span class="s2">"3639ee77-00f4-4c82-9cf2-2e545dbe7b5b"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"benefit_name"</span><span class="p">:</span><span class="s2">"Gagal bayar pinjaman"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"benefit_slug"</span><span class="p">:</span><span class="s2">"gagal-bayar-pinjaman"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"documents_required"</span><span class="p">:</span><span class="s2">[</span><span class="w">
         </span><span class="s2">{</span><span class="w"></span>
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ktp"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"warning-physical-visit"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="s2">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
-        </span><span class="s2">},</span><span class="w"></span>
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"warning-email"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"warning_letter"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
         </span><span class="s2">{</span><span class="w"></span>
           </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"medical-invoice"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
           </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="s2">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"proposed_amount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">"^[1-9]+[0-9]*$"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"tax-identification-number"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"statement_letter_from_authorities"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"payment-history"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"witness_statement"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"policy-certificate-internal"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ktp"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"credit_aggrement"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
+        </span><span class="s2">}</span><span class="p">,</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"family_certificate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="w">
         </span><span class="s2">}</span><span class="w"></span>
     </span><span class="s2">]</span><span class="w"></span>
   </span><span class="p">}]</span><span class="w">
@@ -1390,7 +1465,7 @@ APP-000000224
       <blockquote>
         <p>Sample URL Request body</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
+      <pre class="highlight json tab-json"><code>
       
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APP-00012339"</span><span class="p">,</span><span class="w">
@@ -1479,6 +1554,7 @@ APP-000000224
         <p>Sample URL Request body</p>
       </blockquote>
 
+      <pre class="highlight json tab-json"><code>
       </span><span class="p">{</span><span class="w">
       </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span
         class="s2">"KLM-2008000001"</span><span class="p">,</span><span class="w">
@@ -1498,7 +1574,7 @@ APP-000000224
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
-      <p>TThis API will allow user to update the claims from reprocess state to document_complete in case of any
+      <p>This API will allow user to update the claims from reprocess state to document_complete in case of any
         document which was rejected while verification.</p>
       <h3 id='definition-2'>Definition</h3>
       <table>
@@ -1553,8 +1629,9 @@ APP-000000224
       <blockquote>
         <p>Sample URL Request query params</p>
       </blockquote>
-
-      </span><span class="p"></span><span class="w">
+      
+      <pre class="highlight json tab-json"><code>
+      <span class="p"></span><span class="w">
       </span><span class="s2">/api/v3/claims/{{claim_id}}/details/</span><span class="w"> </span><span class="w">
       </span><span class="p"></span><span class="w">
       </span></code></pre>
@@ -1710,11 +1787,11 @@ APP-000000224
           </tr>
           <tr>
             <td>CLAIM_147</td>
-            <td>Claim can be created only after < X > days since coverage end date</td>
+            <td>Claim can be created only after < X> days since coverage end date</td>
           </tr>
           <tr>
             <td>CLAIM_147</td>
-            <td>Claim cannot be created after < X > days since coverage end date</td>
+            <td>Claim cannot be created after < X> days since coverage end date</td>
           </tr>
           <tr>
             <td>CLAIM_122</td>
