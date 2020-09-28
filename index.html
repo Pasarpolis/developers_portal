@@ -264,6 +264,12 @@
     .highlight .o {
       color: #f92672;
     }
+
+    .text-header {
+      font-weight: 700;
+      border-top: 1px solid #f5f5f5;
+      border-bottom: 1px solid #f5f5f5;
+    }
   </style>
   <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
   <link href="stylesheets/print.css" rel="stylesheet" media="print" />
@@ -314,7 +320,7 @@
         <a href="#api-references" class="toc-h1 toc-link" data-title="API References">API References</a>
         <ul class="toc-list-h2">
           <li>
-            <a href="#policies" class="toc-h2 toc-link" data-title="URLs">Policies</a>
+            <a href="#policies" class="toc-h2 toc-link text-header" data-title="URLs">Policies</a>
             <ul class="toc-list-h2">
               <li>
                 <a href="#urls" class="toc-h2 toc-link" data-title="URLs">URLs</a>
@@ -337,7 +343,7 @@
             </ul>
           </li>
           <li>
-            <a href="#claims" class="toc-h2 toc-link" data-title="API Routes">Claims</a>
+            <a href="#claims" class="toc-h2 toc-link text-header" data-title="API Routes">Claims</a>
             <ul class="toc-list-h2">
               <li>
                 <a href="#urls-claims" class="toc-h2 toc-link" data-title="URLs">URLs</a>
@@ -353,10 +359,10 @@
                 <a href="#get-claim-documents" class="toc-h2 toc-link"
                   data-title="Get Claim Documents API">Get Claim Documents API</a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#upload-claim-documents" class="toc-h2 toc-link"
                   data-title="Upload Claim Document API">Upload Claim Document API</a>
-              </li>
+              </li> -->
               <li>
                 <a href="#create-claim" class="toc-h2 toc-link"
                   data-title="Benefit List API">Create Claim API</a>
@@ -1155,15 +1161,15 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/benefit/{{benefit_id}}/documents/</td>
             <td>GET</td>
-            <td>This API will list all the file documents along with their validations if any, their requirements if any</td>
+            <td>This API will list all the benfit documents along with the validation and type of the document required</td>
             <td>click <a href="#get-claim-documents">here</a></td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>/api/v2/upload-claim-documents/</td>
             <td>POST</td>
             <td>This is the upload API which user can use directly to upload file type claim documents.</td>
             <td>click <a href="#upload-claim-documents">here</a></td>
-          </tr>
+          </tr> -->
           <tr>
             <td>/api/v3/claims/create_with_documents/</td>
             <td>POST</td>
@@ -1173,13 +1179,13 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
-            <td>This Api will update all rejected documents in one go. if this api returns 200 then the claim must be back in document_complete state.</td>
+            <td>This API will allow user to update the claims from reprocess state to document_complete in case of any document which was rejected while verification.</td>
             <td>click <a href="#update-claim-documents">here</a></td>
           </tr>
           <tr>
             <td>/api/v3/claims/{{claim_id}}/details/</td>
             <td>GET</td>
-            <td>This Api will give you the current claim status along with other details.</td>
+            <td>This API will give you the current claim status along with other details.</td>
             <td>click <a href="#claim-details-api">here</a></td>
           </tr>
         </tbody>
@@ -1190,35 +1196,39 @@ APP-000000224
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-00012339"</span><span class="p">,</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="s2">"is_detailed"</span><span class="p">:</span><span class="s2">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
       <blockquote>
-        <p>The above code snippet returns would return:</p>
+        <p>Sample Response Structure:</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
     </span><span class="s2">"benefit_group_id"</span><span class="p">:</span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168cf"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"benefit_group_name"</span><span class="p">:</span><span class="s2">"Death And Permanent Disability"</span><span class="w">
-    </span><span class="s2">"benefits": [</span><span class="p">:</span><span class="s2">"Death And Permanent Disability"</span><span class="w">
-    </span><span class="s2">"benefit_id"</span><span class="p">:</span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168df"</span><span class="w">
-    </span><span class="s2">"documents_required"</span><span class="p">:</span><span class="s2">[</span><span class="w">
-      </span><span class="s2">{</span><span class="w"></span>
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ktp"</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="w">
-        </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">None</span><span class="w">
-        </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">False</span><span class="w">
-        </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">None</span><span class="w">
-        </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="s2">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
-    </span><span class="s2">},</span><span class="w"></span>
-    </span><span class="s2">{</span><span class="w"></span>
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"medical-invoice"</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="w">
-      </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">None</span><span class="w">
-      </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">True</span><span class="w">
-      </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">None</span><span class="w">
-      </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="s2">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
-      </span><span class="s2">}</span><span class="w"></span>
+    </span><span class="s2">"benefit_group_name"</span><span class="p">:</span><span class="s2">"Death And Permanent Disability"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"benefits": [{</span><span class="w">
+      </span><span class="s2">"benefit_id"</span><span class="p">:</span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168df"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"benefit_name"</span><span class="p">:</span><span class="s2">"Gagal bayar pinjaman"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"benefit_slug"</span><span class="p">:</span><span class="s2">"gagal-bayar-pinjaman"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"documents_required"</span><span class="p">:</span><span class="s2">[</span><span class="w">
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ktp"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="s2">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
+        </span><span class="s2">},</span><span class="w"></span>
+        </span><span class="s2">{</span><span class="w"></span>
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"medical-invoice"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"image"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"regex"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="s2">true</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="s2">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="s2">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
+        </span><span class="s2">}</span><span class="w"></span>
     </span><span class="s2">]</span><span class="w"></span>
   </span><span class="p">}]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
 </span></code></pre>
       <p>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process they need to send us the benefit_id provided in the response of this api with the application number.</p>      </p>
       <h3 id='definition'>Definition</h3>
@@ -1252,7 +1262,7 @@ APP-000000224
         <tbody>
           <tr>
             <td>application_no</td>
-            <td>&quot;Application Number&quot;</td>
+            <td>&quot;Application Number for policy&quot;</td>
             <td>Yes</td>
             <td></td>
           </tr>
@@ -1262,7 +1272,7 @@ APP-000000224
       <blockquote>
         <p>Sample Request Query</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">/api/v2/?benefit_id=33a73c9c-5045-4057-b0c9-98708fa1abe</span><span class="w">
+      <pre class="highlight json tab-json"><code><span class="p">/api/v3/claims/benefit/33a73c9c-5045-4057-b0c9-98708fa1abe/documents/</span><span class="w">
 
 <span class="w">
 </span></code></pre>
@@ -1272,21 +1282,21 @@ APP-000000224
         <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"ktp"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">None</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">False</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">None</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">["image/png", "image/jpeg", "image/jpg"]</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">["image/png", "image/jpeg", "image/jpg"]</span><span class="w">
   </span><span class="p">}</span>,<span class="p"> {</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"medical-invoice"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"regex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grey.jone@example.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000002"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">"R2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">"Samsung"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supported_format"</span><span class="p">:</span><span class="w"> </span><span class="mi">"Samsung"</span><span class="w">
 </span><span class="p">}]</span>
     <span class="w">
     </span></code></pre>
-    <p>This API will list all the file documents along with their validations if any, their requirements if any.</p>
+    <p>This API will list all the benfit documents along with the validation and type of the document required.</p>
       <h3 id='definition'>Definition</h3>
       <table>
         <thead>
@@ -1300,11 +1310,11 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/benefit/{{benefit_id}}/documents/</td>
             <td>GET</td>
-            <td>This API will list all the file documents along with their validations if any, their requirements if any</td>
+            <td>This API will list all the benfit documents along with the validation and type of the document required.</td>
           </tr>
         </tbody>
       </table>
-      <h3 id='json-request-body-data'>Request Query Params:</h3>
+      <h3 id='json-request-body-data'>Request Path Params:</h3>
       <p><strong>Main attribute</strong></p>
       <table>
         <thead>
@@ -1324,7 +1334,7 @@ APP-000000224
           </tr>
         </tbody>
       </table>
-      <h2 id='upload-claim-documents'>Upload Claim Documents API</h2>
+      <!-- <h2 id='upload-claim-documents'>Upload Claim Documents API</h2>
       <blockquote>
         <p>Sample URL Request body</p>
       </blockquote>
@@ -1360,20 +1370,21 @@ APP-000000224
             <td>Check statuses of given policies</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
 
       <h2 id='create-claim'>Create Claim With Documents API</h2>
       <blockquote>
         <p>Sample URL Request body</p>
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
-
+      
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"application_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APP-00012339"</span><span class="w">
+    </span><span class="s2">"reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APP-00012339"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"benefit_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168cf"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ktp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ahdhnshbwhdb"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"medical-invoice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ahrahwgamnwunduneu"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"account_holder_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rishabh Agrawal"</span><span class="w">
+    </span><span class="s2">"benefit_slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jaminan-kerusakan-total"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"application_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APP-000578990"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-25 01:12:34"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"chronology"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I am here"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
       <blockquote>
@@ -1382,8 +1393,7 @@ APP-000000224
       <pre class="highlight json tab-json"><code><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2008000011"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"claim_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initiated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"claim_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33a73c9c-5045-4057-b0c9-98708fa168aad"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_received"</span><span class="w">
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
@@ -1406,6 +1416,50 @@ APP-000000224
         </tbody>
       </table>
 
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Main attribute</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>reference_number</td>
+            <td>&quot;Reference Number&quot;</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>benefit_id</td>
+            <td>&quot;Benefit ID&quot;</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>benefit_slug</td>
+            <td>&quot;Benefit Slug&quot;</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>application_no</td>
+            <td>&quot;Application Number&quot;</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>created_at</td>
+            <td>&quot;Created At&quot;</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>chronology</td>
+            <td>&quot;Chronology&quot;</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+
       <h2 id='update-claim-documents'>Update Claim Documents API</h2>
       <blockquote>
         <p>Sample URL Request body</p>
@@ -1413,9 +1467,9 @@ APP-000000224
       <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
 
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2008000001"</span><span class="w">
-    </span><span class="s2">"ktp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://updated-ktp.png"</span><span class="w">
-    </span><span class="s2">"medical-invoice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://updated-medical-invoice.jpeg"</span><span class="w">
+    </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2008000001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ktp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://updated-ktp.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"chronology"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello world"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
       <blockquote>
@@ -1423,12 +1477,12 @@ APP-000000224
       </blockquote>
       <pre class="highlight json tab-json"><code><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">True</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Documents Successfully Updated"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Documents Successfully Updated"</span><span class="w">
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
-      <p>This Api will update all rejected documents in one go. if this api returns 200 then the claim must be back in document_complete state.</p>
+      <p>TThis API will allow user to update the claims from reprocess state to document_complete in case of any document which was rejected while verification.</p>
       <h3 id='definition-2'>Definition</h3>
       <table>
         <thead>
@@ -1442,7 +1496,36 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
-            <td>This Api will update all rejected documents in one go. if this api returns 200 then the claim must be back in document_complete state.</td>
+            <td>TThis API will allow user to update the claims from reprocess state to document_complete in case of any document which was rejected while verification.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Main attribute</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>claim_number</td>
+            <td>&quot;Claim Number&quot;</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>ktp-image-processing</td>
+            <td>&quot;KTP image&quot;</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>chronology</td>
+            <td>&quot;Chronology&quot;</td>
+            <td>No</td>
           </tr>
         </tbody>
       </table>
@@ -1465,11 +1548,11 @@ APP-000000224
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2008000082"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"claim_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Claim Initiated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"claim_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">240000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"claim_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">240000</span><span class="w">
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
-      <p>This is the upload API which user can use directly to upload file type claim documents.</p>
+      <p>This API will give you the current claim status along with other details.</p>
       <h3 id='definition-2'>Definition</h3>
       <table>
         <thead>
@@ -1483,7 +1566,7 @@ APP-000000224
           <tr>
             <td>/api/v3/claims/{{claim_id}}/details/</td>
             <td>GET</td>
-            <td>This Api will give you the current claim status along with other details.</td>
+            <td>This API will give you the current claim status along with other details.</td>
           </tr>
         </tbody>
       </table>
