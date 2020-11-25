@@ -5,3 +5,23 @@
     clear: none;
     margin: 0 28px;
     left: 0; }
+.content pre {
+    padding: 15px;
+    line-height: 1;
+}
+.no-margin {
+    margin: 0;
+}
+.content h1,.content h2,.content h3,.content h4,.content h5,.content h6,.content p,.content table,.content ul,.content ol,.content aside,.content dl {
+    padding-left:28px;
+}
+.content ol, .content ul {
+    padding-left: 48px;
+}
+.content h2 {
+    margin-right: 45%;
+    margin-top: 0;
+}
+.content h2.border-top-none, .border-top-none {
+    border-top: none;
+}
