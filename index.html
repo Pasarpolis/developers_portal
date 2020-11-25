@@ -1311,8 +1311,12 @@ APP-000000224
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
-      <p>This Api will help users to identify the benefits on which they can claim. As a part of claim creation process
-        they need to send us the benefit_id provided in the response of this api with the application number.</p>
+      <p>
+        This Api will help partner to identify the benefits on which they can claim. As a part of claim creation process they need to send us 
+        the benefit_id provided in the response of this api with the  application number. 
+        For reference, this is the sample request and response for benefit list which is taking  
+        application_number as request params for which, user needs to get  all existing benefits on this application number.
+      </p>
       </p>
       <h3 id='definition'>Definition</h3>
       <table>
@@ -1384,7 +1388,13 @@ APP-000000224
 </span><span class="p">}]</span>
     <span class="w">
     </span></code></pre>
-      <p>This API will list all the benfit documents along with the validation and type of the document required.</p>
+      <p>
+        This API will list all the benfit documents along with the validation and type of the document required.
+        For reference, this is the sample request and response for getting all documents required for particular benefit id. 
+        Here benefit_id need to be replaced with benefit_id ,which was received from the response of benefit list API . 
+        This is an optional API (for details partner can use Benefit List API with is_detail param as True for details of 
+        documents along with the benefits )
+      </p>
       <h3 id='definition'>Definition</h3>
       <table>
         <thead>
@@ -1498,7 +1508,12 @@ APP-000000224
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
-      <p>This API will allows users to create claim on our portal.</p>
+      <p>
+        This API will allows Partner to create claim on our portal. 
+        In request payload it expects all required main attributes along with other attributes required for a particular benefit . 
+        Attributes required for a benefit can be fetched from Get Claim Documents API / Benefit list API  
+        which also tells you the mandatory and non mandatory attributes need to be send along with the type of those attributes
+      </p>
       <h3 id='definition-2'>Definition</h3>
       <table>
         <thead>
@@ -1519,7 +1534,9 @@ APP-000000224
 
       <h3 id='json-request-body-data'>JSON Request Body Data</h3>
       <h3>Example for Benefit "Asuransi Kredit"</h3>
-      <p><strong>Main attribute</strong></p>
+
+
+      <p><strong>Common Mandatory Attributes</strong></p>
       <table>
         <thead>
           <tr>
@@ -1554,6 +1571,25 @@ APP-000000224
             <td>&quot;Created At&quot;</td>
             <td>Yes</td>
           </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>
+          Documents required for a particular benefit. As in this sample request for Benefit "Asuransi Kredit". 
+          These attributes may vary as per the benefits being choosen from the benefit List API and depending upon that 
+          only these attributes need to be sent. We have taken one example product to explain this.
+        </strong>
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>warning-physical-visit</td>
             <td>&quot;Warning Physical Visit&quot;</td>
@@ -1689,6 +1725,25 @@ APP-000000224
             <td>&quot;Claim Number&quot;</td>
             <td>Yes</td>
           </tr>
+        </tbody>
+      </table>
+
+
+      <p>
+        <strong>
+          Documents required for a particular benefit which need to be updated. 
+          As in this sample request for Benefit "Asuransi Kredit"
+        </strong>
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
           <tr>
             <td>ktp-image-processing</td>
             <td>&quot;KTP image&quot;</td>
@@ -1710,21 +1765,134 @@ APP-000000224
       
       <pre class="highlight json tab-json"><code>
       <span class="p"></span><span class="w">
-      </span><span class="s2">/api/v3/claims/{{claim_id}}/details/</span><span class="w"> </span><span class="w">
+      </span><span class="s2">/api/v3/claims/{{claim_number}}/details/</span><span class="w"> </span><span class="w">
       </span><span class="p"></span><span class="w">
       </span></code></pre>
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="w">
+      <pre class="highlight json tab-json">
+        <code><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2008000082"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"claim_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Claim Initiated"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"claim_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">240000</span><span class="w">
-  </span><span class="p">}</span><span class="w"> </span><span class="w">
-
-</span></code></pre>
-      <p>This API will give you the current claim status along with other details.</p>
+    </span><span class="s2">"claim_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KLM-2007006088"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer/Pasarpolis Received Payment From Provider"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">70000.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"application_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">APP-000758162</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">2020-07-21 09:01:16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">2020-07-23 12:28:00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"benefit_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">fb7ac6ec-1fc1-49e0-85ed-17197b368de9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"benefit_slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">santunan-tunai-rawat-inap-dengan-pembedahan</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"policy_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">DAN000014</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"policy_holder_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">Insured Name 3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span><span class="w">
+      </span><span class="w"></span><span class="s2">"impatient_claim_form"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.d7baa4b0-8d8b-4b33-8320-3ff18a110b1f.png"</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"ktp-others"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.7a1867de-b481-487b-a273-2948e3b0998e.png"</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"doctor_certificate"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">[</span>
+          <span class="s2">"https://storage.84640a46-4aa7-4282-b6f3-eff01e54e9fa.png"</span>
+        <span class="s2">]</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"medical_bills"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">[</span>
+          <span class="s2">"https://storage.5c500538-a19d-47b1-81e8-26b53086d44a.png"</span>
+        <span class="s2">]</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"medical_records"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">[</span>
+          <span class="s2">"https://storage.ba1f6a4f-94ea-4de8-9148-ecf5ce8e002c.png"</span>
+        <span class="s2">]</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.7a1867de-b481-487b-a273-2948e3b0998e.png"</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"bank_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.7a1867de-b481-487b-a273-2948e3b0998e.png"</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      </span><span class="w"></span><span class="s2">"account_holder_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">{</span>
+        <span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://storage.7a1867de-b481-487b-a273-2948e3b0998e.png"</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"valid"</span>
+      <span class="s2">}</span><span class="p">,</span>
+    <span class="s2">}</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"states"</span><span class="p">:</span><span class="w"> </span><span class="s2">[</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initiated"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"initiated"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:01:16"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_received"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_received"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:02:06"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_complete"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_received"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:02:07"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_verified"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_verified"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:02:55"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_pending_from_pasarpolis"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"document_verified"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:08"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_accepted"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:19"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_payment_pending"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:19"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_payment_triggered"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:33"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_payment_paid"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"settled"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:39"</span>
+      <span class="s2">}</span><span class="p">,</span>
+      <span class="s2">{</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"settled"</span><span class="p">,</span>
+        <span class="s2">"status_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"settled"</span><span class="p">,</span>
+        <span class="s2">"status_changed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:48"</span>
+      <span class="s2">}</span><span class="p">,</span>
+    <span class="s2">]</span><span class="p">,</span>
+    </span><span class="s2">"transaction_details"</span><span class="p">:</span><span class="w"> </span><span class="s2">[</span><span class="w">
+      </span><span class="s2">{</span>
+        <span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quertyui"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span>
+        <span class="s2">"completion_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-21 09:03:33"</span><span class="p">,</span>
+        <span class="s2">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AXCP123456"</span><span class="p">,</span>
+        <span class="s2">"account_holder_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing XYZ"</span><span class="p">,</span>
+        <span class="s2">"bank_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ"</span>
+      <span class="s2">}</span>
+    <span class="s2">]</span><span class="p">,</span>
+  <span class="p">}</span><span class="w"> </span><span class="w"></span>
+</code></pre>
+      <p>
+        This API will give you the current claim status along with other details. 
+        In request it expects claim_number for which detials need to be fetched. 
+        claim_number can be get from the response of Create Claim With Documents API
+      </p>
       <h3 id='definition-2'>Definition</h3>
       <table>
         <thead>
@@ -1736,7 +1904,7 @@ APP-000000224
         </thead>
         <tbody>
           <tr>
-            <td>/api/v3/claims/{{claim_id}}/details/</td>
+            <td>/api/v3/claims/{{claim_number}}/details/</td>
             <td>GET</td>
             <td>This API will give you the current claim status along with other details.</td>
           </tr>
