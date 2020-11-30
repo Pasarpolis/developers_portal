@@ -3444,6 +3444,10 @@
       </table>
 
       <h1 id='claims'>API References Claims</h1>
+      <p>
+        This is the general documentation which is there for how the  
+        claim integration is done with Pasarpolis and we have taken one product as an sample to explain our APIs. 
+        Please replace all params with expected valid values.</p>
       <h3 id='urls-claims'>URLs</h3>
       <p>You can access our API using these URLS :</p>
       <table>
@@ -4008,8 +4012,12 @@
   </span><span class="p">}</span><span class="w"> </span><span class="w">
 
 </span></code></pre>
-      <p>This API will allow user to update the claims from reprocess state to document_complete in case of any
-        document which was rejected while verification.</p>
+      <p>
+        This API will allow user to update the claims from reprocess state to document_complete in case of any document 
+        which was rejected while verification. In request payload it expects claim_number as required main attribute which 
+        will be same as returned in the response of  Create Claim With Documents API. 
+        Except this it can take all required document for a particular benefit which need to be updated .
+      </p>
       <h3 id='definition-2'>Definition</h3>
       <table>
         <thead>
@@ -4023,7 +4031,7 @@
           <tr>
             <td>/api/v3/claims/update_with_documents/</td>
             <td>POST</td>
-            <td>TThis API will allow user to update the claims from reprocess state to document_complete in case of any
+            <td>This API will allow user to update the claims from reprocess state to document_complete in case of any
               document which was rejected while verification.</td>
           </tr>
         </tbody>
