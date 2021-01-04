@@ -362,16 +362,40 @@
                 <a href="#api-routes" class="toc-h2 toc-link" data-title="API Routes">API Routes</a>
               </li>
               <li>
-                <a href="#phone-protection-registration-api" class="toc-h2 toc-link"
-                  data-title="Phone Protection Registration API">Phone Protection Registration API</a>
+                <a href="#create-policy-v1-api" class="toc-h2 toc-link" data-title="Create Policy V1 API">Create Policy
+                  V1 API</a>
               </li>
               <li>
-                <a href="#phone-protection-aggregate-policy-api" class="toc-h2 toc-link"
-                  data-title="Phone Protection Aggregate Policy API">Phone Protection Aggregate Policy API</a>
+                <a href="#validate-policy-v1-api" class="toc-h2 toc-link" data-title="Validate Policy V1 API">Validate
+                  Policy V1 API</a>
               </li>
               <li>
-                <a href="#phone-protection-status-api" class="toc-h2 toc-link"
-                  data-title="Phone Protection Status API">Phone Protection Status API</a>
+                <a href="#create-policy-v2-api" class="toc-h2 toc-link" data-title="Create Policy V2 API">Create Policy
+                  V2 API</a>
+              </li>
+              <li>
+                <a href="#validate-policy-v2-api" class="toc-h2 toc-link" data-title="Validate Policy V2 API">Validate
+                  Policy V2 API</a>
+              </li>
+              <li>
+                <a href="#create-aggregate-policy-v2-api" class="toc-h2 toc-link"
+                  data-title="Create Aggregate Policy V2 API">Create Aggregate Policy V2 API</a>
+              </li>
+              <li>
+                <a href="#validate-aggregate-policy-v2-api" class="toc-h2 toc-link"
+                  data-title="Validate Aggregate Policy V2 API">Validate Aggregate Policy V2 API</a>
+              </li>
+              <li>
+                <a href="#policy-status-v2-api" class="toc-h2 toc-link" data-title="Policy Status V2 API">Policy Status
+                  V2 API</a>
+              </li>
+              <li>
+                <a href="#cancellation-policy-v2-api" class="toc-h2 toc-link"
+                  data-title="Cancellation Policy V2 API">Cancellation Policy V2 API</a>
+              </li>
+              <li>
+                <a href="#termination-policy-v2-api" class="toc-h2 toc-link"
+                  data-title="Termination Policy V2 API">Termination Policy V2 API</a>
               </li>
             </ul>
           </li>
@@ -3142,49 +3166,387 @@
         </thead>
         <tbody>
           <tr>
+            <td>/api/v1/config/createpolicy/<span class="o">&lt;</span>product_key<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Send product creation request data to generate policy</td>
+            <td>click <a href="#create-policy-v1-api">here</a></td>
+          </tr>
+          <tr>
+            <td>/api/v1/config/validatepolicy/<span class="o">&lt;</span>product_key<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Send product creation request data to validate policy data</td>
+            <td>click <a href="#validate-policy-v1-api">here</a></td>
+          </tr>
+          <tr>
             <td>/api/v2/createpolicy/</td>
             <td>POST</td>
-            <td>Send phone protection application data to generate policy</td>
-            <td>click <a href="#phone-protection-registration-api">here</a></td>
+            <td>Send product creation request data to generate policy</td>
+            <td>click <a href="#create-policy-v2-api">here</a></td>
+          </tr>
+          <tr>
+            <td>/api/v2/validatepolicy/</td>
+            <td>POST</td>
+            <td>Send product creation request data to validate policy data</td>
+            <td>click <a href="#validate-policy-v2-api">here</a></td>
           </tr>
           <tr>
             <td>/api/v2/createaggregatepolicy/</td>
             <td>POST</td>
-            <td>Send phone protection application data to generate aggregate policy</td>
-            <td>click <a href="#phone-protection-aggregate-policy-api">here</a></td>
+            <td>Send product creation request data to generate aggregate policy</td>
+            <td>click <a href="#create-aggregate-policy-v2-api">here</a></td>
+          </tr>
+          <tr>
+            <td>/api/v2/validateaggregatepolicy/</td>
+            <td>POST</td>
+            <td>Send product creation request data to validate aggregate policy data</td>
+            <td>click <a href="#validate-aggregate-policy-v2-api">here</a></td>
           </tr>
           <tr>
             <td>/api/v2/policystatus/</td>
             <td>POST</td>
             <td>Check Statuses of given policies</td>
-            <td>click <a href="#phone-protection-status-api">here</a></td>
+            <td>click <a href="#policy-status-v2-api">here</a></td>
+          </tr>
+          <tr>
+            <td>/api/v2/cancellation/<span class="o">&lt;</span>ref_id<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Cancel a given policy</td>
+            <td>click <a href="#cancellation-policy-v2-api">here</a></td>
+          </tr>
+          <tr>
+            <td>/api/v2/termination/<span class="o">&lt;</span>ref_id<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Terminate a given policy</td>
+            <td>click <a href="#termination-policy-v2-api">here</a></td>
           </tr>
         </tbody>
       </table>
-      <h2 id='phone-protection-registration-api'>Phone Protection Registration API</h2>
+
+      <!-- END Point Detail Start -->
+      <h2 id='create-policy-v1-api'>Create Policy V1 API</h2>
+      <p>
+        This API will allows Partner to create policy on our portal. In request payload it expects all required main
+        attributes along with other attributes required for a particular product . Attributes and validations on those
+        attributes required for a product policy creation are shared in API specs shared via email.
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
       <blockquote>
         <p>Sample JSON Request Body</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"R1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"make"</span><span class="p">:</span><span class="w"> </span><span class="mi">"Apple"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="mi">"iPhone X"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchase_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">"2018-12-20"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchase_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">32000.00</span><span class="p">,</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-000008152"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref"</span><span class="p">:</span><span class="s2">"e30ef12cafa6007868ad67fe3b6ee82095f8174e"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-000725168"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="mi">50000</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ref"</span><span class="p">:</span><span class="s2">"d72cf8436c06968e9c60ee98bd6643062497cf36"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>HTTP Method</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/v1/config/createpolicy/<span class="o">&lt;</span>product_key<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Send product creation request data to generate policy</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Some Common mandatory fields</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>package_code</td>
+            <td>name of package code</td>
+            <td>Yes</td>
+            <td>string, package code should be one of the list of package codes specified in api specs</td>
+          </tr>
+          <tr>
+            <td>reference_id</td>
+            <td>Unique id</td>
+            <td>Yes</td>
+            <td>string, unique id for each policy</td>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td>customer</td>
+            <td>Yes</td>
+            <td>string, minimumlegth = 3 </td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>There can be additional mandatory and not mandatory attributes for policy creation depending on
+          product. Here is list of attributes for product bike-protection</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dob</td>
+            <td>Insured's date of birth</td>
+            <td>Yes</td>
+            <td>string, Should be in the following format: YYYY-MM-DD. The age of user should be between 17-60 years.
+              This date should be less than the current date.</td>
+          </tr>
+          <tr>
+            <td>chasis_number</td>
+            <td>Chasis Number</td>
+            <td>Yes</td>
+            <td>string, can be used up to 4 active policy per chasis number</td>
+          </tr>
+          <tr>
+            <td>vehicle_year</td>
+            <td>Year in which vehicle was brought</td>
+            <td>Yes</td>
+            <td>int, current year and vehicle year shouldn't have a gap of more than 7 years</td>
+          </tr>
+          <tr>
+            <td>brand</td>
+            <td>Brand</td>
+            <td>Yes</td>
+            <td>int, brand id</td>
+          </tr>
+          <tr>
+            <td>model</td>
+            <td>Model</td>
+            <td>Yes</td>
+            <td>int, model id</td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Premium of policy</td>
+            <td>No</td>
+            <td>int, should match package's premium if value is not 0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- END Point Detail End -->
+
+      <!-- END Point Detail Start -->
+      <h2 id='validate-policy-v1-api'>Validate Policy V1 API</h2>
+      <p>
+        This API will allows Partner to validate policy request on our portal. In request payload it expects all
+        required main attributes along with other attributes required for a particular product . Attributes and
+        validations on those attributes required for a product policy creation are shared in API specs shared via email.
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
+      <blockquote>
+        <p>The above code snippet returns would return:</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Valid request"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>HTTP Method</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/v1/config/validatepolicy/<span class="o">&lt;</span>product_key<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Send product creation request data to validate policy data</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Some Common mandatory fields</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>package_code</td>
+            <td>name of package code</td>
+            <td>Yes</td>
+            <td>string, package code should be one of the list of package codes specified in api specs</td>
+          </tr>
+          <tr>
+            <td>reference_id</td>
+            <td>Unique id</td>
+            <td>Yes</td>
+            <td>string, unique id for each policy</td>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td>customer</td>
+            <td>Yes</td>
+            <td>string, minimumlegth = 3 </td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>There can be additional mandatory and not mandatory attributes for policy request validation depending
+          on product. Here is list of attributes for product bike-protection</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dob</td>
+            <td>Insured's date of birth</td>
+            <td>Yes</td>
+            <td>string, Should be in the following format: YYYY-MM-DD. The age of user should be between 17-60 years.
+              This date should be less than the current date.</td>
+          </tr>
+          <tr>
+            <td>chasis_number</td>
+            <td>Chasis Number</td>
+            <td>Yes</td>
+            <td>string, can be used up to 4 active policy per chasis number</td>
+          </tr>
+          <tr>
+            <td>vehicle_year</td>
+            <td>Year in which vehicle was brought</td>
+            <td>Yes</td>
+            <td>int, current year and vehicle year shouldn't have a gap of more than 7 years</td>
+          </tr>
+          <tr>
+            <td>brand</td>
+            <td>Brand</td>
+            <td>Yes</td>
+            <td>int, brand id</td>
+          </tr>
+          <tr>
+            <td>model</td>
+            <td>Model</td>
+            <td>Yes</td>
+            <td>int, model id</td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Premium of policy</td>
+            <td>No</td>
+            <td>int, should match package's premium if value is not 0</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
+
+
+
+      <!-- END Point Detail Start -->
+      <h2 id='create-policy-v2-api'>Create Policy V2 API</h2>
+      <p>
+        This API will allows Partner to create policy on our portal. In request payload it expects all required main
+        attributes along with other attributes required for a particular product . Attributes and validations on those
+        attributes required for a product policy creation are shared in API specs shared via email.
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
+      <blockquote>
+        <p>The above code snippet returns would return:</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-000725168"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="mi">50000</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ref"</span><span class="p">:</span><span class="s2">"d72cf8436c06968e9c60ee98bd6643062497cf36"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
       <h3 id='definition'>Definition</h3>
       <table>
         <thead>
@@ -3198,12 +3560,12 @@
           <tr>
             <td>/api/v2/createpolicy/</td>
             <td>POST</td>
-            <td>Send phone protection application data to generate policy</td>
+            <td>Send product creation request data to generate policy</td>
           </tr>
         </tbody>
       </table>
       <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
-      <p><strong>Main attribute</strong></p>
+      <p><strong>Some Common mandatory fields</strong></p>
       <table>
         <thead>
           <tr>
@@ -3215,105 +3577,284 @@
         </thead>
         <tbody>
           <tr>
-            <td>product</td>
-            <td>&quot;phone-protection&quot;</td>
+            <td>package_code</td>
+            <td>name of package code</td>
             <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td>Name of the person purchasing insurance</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>email_id</td>
-            <td>Email ID of the person purchasing insurance</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>phone_no</td>
-            <td>Phone number of the person purchasing insurance</td>
-            <td>Yes</td>
-            <td></td>
+            <td>string, package code should be one of the list of package codes specified in api specs</td>
           </tr>
           <tr>
             <td>reference_id</td>
-            <td>reference id from to uniquely identify a request, must unique for every phone protection registration
-            </td>
+            <td>Unique id</td>
             <td>Yes</td>
-            <td></td>
+            <td>string, unique id for each policy</td>
           </tr>
           <tr>
-            <td>make</td>
-            <td>Brand of the phone</td>
+            <td>name</td>
+            <td>customer</td>
             <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>model</td>
-            <td>Model of the phone</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>purchase_date</td>
-            <td>Date of purchase of the phone as mentioned in the invoice</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>purchase_value</td>
-            <td>Purchase value of the phone as mentioned in the invoice</td>
-            <td>Yes</td>
-            <td></td>
+            <td>string, minimumlegth = 3 </td>
           </tr>
         </tbody>
       </table>
-      <h2 id='phone-protection-aggregate-policy-api'>Phone Protection Aggregate Policy API</h2>
+      <p><strong>There can be additional mandatory and not mandatory attributes for policy request validation depending
+          on product. Here is list of attributes for product bike-protection</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dob</td>
+            <td>Insured's date of birth</td>
+            <td>Yes</td>
+            <td>string, Should be in the following format: YYYY-MM-DD. The age of user should be between 17-60 years.
+              This date should be less than the current date.</td>
+          </tr>
+          <tr>
+            <td>chasis_number</td>
+            <td>Chasis Number</td>
+            <td>Yes</td>
+            <td>string, can be used up to 4 active policy per chasis number</td>
+          </tr>
+          <tr>
+            <td>vehicle_year</td>
+            <td>Year in which vehicle was brought</td>
+            <td>Yes</td>
+            <td>int, current year and vehicle year shouldn't have a gap of more than 7 years</td>
+          </tr>
+          <tr>
+            <td>brand</td>
+            <td>Brand</td>
+            <td>Yes</td>
+            <td>int, brand id</td>
+          </tr>
+          <tr>
+            <td>model</td>
+            <td>Model</td>
+            <td>Yes</td>
+            <td>int, model id</td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Premium of policy</td>
+            <td>No</td>
+            <td>int, should match package's premium if value is not 0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- END Point Detail End -->
+
+
+      <!-- END Point Detail Start -->
+      <h2 id='validate-policy-v2-api'>Validate Policy V2 API</h2>
+      <p>
+        This API will allows Partner to validate policy request on our portal. In request payload it expects all
+        required main attributes along with other attributes required for a particular product . Attributes and
+        validations on those attributes required for a product policy creation are shared in API specs shared via email.
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
       <blockquote>
         <p>Sample JSON Request Body</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
-  </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000001"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"R1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"make"</span><span class="p">:</span><span class="w"> </span><span class="mi">"Apple"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="mi">"iPhone X"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchase_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">"2018-12-20"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchase_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">32000.00</span><span class="p">,</span><span class="w">
-</span><span class="p">}</span>,<span class="p">{</span><span class="w">
-  </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grey Jone"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"email_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grey.jone@example.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000002"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"R2"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"make"</span><span class="p">:</span><span class="w"> </span><span class="mi">"Samsung"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="mi">"Samsung S10"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchase_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">"2018-12-20"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchase_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">32000.00</span><span class="p">,</span><span class="w">
-</span><span class="p">}]</span>
-
-<span class="w">
-</span></code></pre>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code>{
-    "policies": {
-        "R1": {
-            "application_no": "APP-000000144",
-            "ref": "d442dc31da8fbad82c68ba5d54fa87ca6a6a087f"
-        },
-         "R2": {
-            "application_no": "APP-000000145",
-            "ref": "bbf2dc31da8fbad82c68ba5d54fa87ca6a6a087f"
-        }
-    }
-}</code></pre>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Valid request"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>HTTP Method</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/v2/validatepolicy/</td>
+            <td>POST</td>
+            <td>Send product creation request data to validate policy data</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Some Common mandatory fields</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>package_code</td>
+            <td>name of package code</td>
+            <td>Yes</td>
+            <td>string, package code should be one of the list of package codes specified in api specs</td>
+          </tr>
+          <tr>
+            <td>reference_id</td>
+            <td>Unique id</td>
+            <td>Yes</td>
+            <td>string, unique id for each policy</td>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td>customer</td>
+            <td>Yes</td>
+            <td>string, minimumlegth = 3 </td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>There can be additional mandatory and not mandatory attributes for policy request validation depending
+          on product. Here is list of attributes for product bike-protection</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dob</td>
+            <td>Insured's date of birth</td>
+            <td>Yes</td>
+            <td>string, Should be in the following format: YYYY-MM-DD. The age of user should be between 17-60 years.
+              This date should be less than the current date.</td>
+          </tr>
+          <tr>
+            <td>chasis_number</td>
+            <td>Chasis Number</td>
+            <td>Yes</td>
+            <td>string, can be used up to 4 active policy per chasis number</td>
+          </tr>
+          <tr>
+            <td>vehicle_year</td>
+            <td>Year in which vehicle was brought</td>
+            <td>Yes</td>
+            <td>int, current year and vehicle year shouldn't have a gap of more than 7 years</td>
+          </tr>
+          <tr>
+            <td>brand</td>
+            <td>Brand</td>
+            <td>Yes</td>
+            <td>int, brand id</td>
+          </tr>
+          <tr>
+            <td>model</td>
+            <td>Model</td>
+            <td>Yes</td>
+            <td>int, model id</td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Premium of policy</td>
+            <td>No</td>
+            <td>int, should match package's premium if value is not 0</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
+
+
+      <!-- END Point Detail Start -->
+      <h2 id='create-aggregate-policy-v2-api'>Create Aggregate Policy V2 API</h2>
+      <p>
+        This API will allows Partner to create aggregate policy on our portal. In request payload it expects all
+        required main attributes along with other attributes required for a particular product . Attributes and
+        validations on those attributes required for a product policy creation are shared in API specs shared via email.
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">[</span><span class="w">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"></span>
+        </code>
+      </code>
+      </pre>
+      <blockquote>
+        <p>The above code snippet returns would return:</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"policies"</span><span class="p">:</span><span class="w"></span><span class="p">{</span><span class="w">
+            </span><span class="s2">"33551"</span><span class="p">:</span><span class="w"></span><span class="p">{</span><span class="w">
+            </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-000725168"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"premium"</span><span class="p">:</span><span class="mi">50000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ref"</span><span class="p">:</span><span class="s2">"d72cf8436c06968e9c60ee98bd6643062497cf36"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"33552"</span><span class="p">:</span><span class="w"></span><span class="p">{</span><span class="w">
+            </span><span class="s2">"application_no"</span><span class="p">:</span><span class="s2">"APP-000725168"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"premium"</span><span class="p">:</span><span class="mi">50000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ref"</span><span class="p">:</span><span class="s2">"d72cf8436c06968e9c60ee98bd6643062497cf36"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span></code>
+      </pre>
       <h3 id='definition'>Definition</h3>
       <table>
         <thead>
@@ -3327,12 +3868,12 @@
           <tr>
             <td>/api/v2/createaggregatepolicy/</td>
             <td>POST</td>
-            <td>Send phone protection application data to generate aggregate policy</td>
+            <td>Send product creation request data to generate aggregate policy</td>
           </tr>
         </tbody>
       </table>
-      <h3 id='json-request-body-data'>JSON Request Body Data (Array of Objects):</h3>
-      <p><strong>Main attribute</strong></p>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Some Common mandatory fields</strong></p>
       <table>
         <thead>
           <tr>
@@ -3344,88 +3885,273 @@
         </thead>
         <tbody>
           <tr>
-            <td>product</td>
-            <td>&quot;phone-protection&quot;</td>
+            <td>package_code</td>
+            <td>name of package code</td>
             <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td>Name of the person purchasing insurance</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>email_id</td>
-            <td>Email ID of the person purchasing insurance</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>phone_no</td>
-            <td>Phone number of the person purchasing insurance</td>
-            <td>Yes</td>
-            <td></td>
+            <td>string, package code should be one of the list of package codes specified in api specs</td>
           </tr>
           <tr>
             <td>reference_id</td>
-            <td>reference id from to uniquely identify a request, must unique for every phone protection registration
-            </td>
+            <td>Unique id</td>
             <td>Yes</td>
-            <td></td>
+            <td>string, unique id for each policy</td>
           </tr>
           <tr>
-            <td>make</td>
-            <td>Brand of the phone</td>
+            <td>name</td>
+            <td>customer</td>
             <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>model</td>
-            <td>Model of the phone</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>purchase_date</td>
-            <td>Date of purchase of the phone as mentioned in the invoice</td>
-            <td>Yes</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>purchase_value</td>
-            <td>Purchase value of the phone as mentioned in the invoice</td>
-            <td>Yes</td>
-            <td></td>
+            <td>string, minimumlegth = 3 </td>
           </tr>
         </tbody>
       </table>
-      <h2 id='phone-protection-status-api'>Phone Protection Status API</h2>
-      <blockquote>
-        <p>Sample URL Request body</p>
-      </blockquote>
-      <pre class="highlight json tab-json"><code><span class="err">#Body</span><span class="w"> </span><span class="err">accepts</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">application</span><span class="w"> </span><span class="err">post</span><span class="w">
+      <p><strong>There can be additional mandatory and not mandatory attributes for policy request validation depending
+          on product. Here is list of attributes for product bike-protection</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dob</td>
+            <td>Insured's date of birth</td>
+            <td>Yes</td>
+            <td>string, Should be in the following format: YYYY-MM-DD. The age of user should be between 17-60 years.
+              This date should be less than the current date.</td>
+          </tr>
+          <tr>
+            <td>chasis_number</td>
+            <td>Chasis Number</td>
+            <td>Yes</td>
+            <td>string, can be used up to 4 active policy per chasis number</td>
+          </tr>
+          <tr>
+            <td>vehicle_year</td>
+            <td>Year in which vehicle was brought</td>
+            <td>Yes</td>
+            <td>int, current year and vehicle year shouldn't have a gap of more than 7 years</td>
+          </tr>
+          <tr>
+            <td>brand</td>
+            <td>Brand</td>
+            <td>Yes</td>
+            <td>int, brand id</td>
+          </tr>
+          <tr>
+            <td>model</td>
+            <td>Model</td>
+            <td>Yes</td>
+            <td>int, model id</td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Premium of policy</td>
+            <td>No</td>
+            <td>int, should match package's premium if value is not 0</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
 
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ref1"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+      <!-- END Point Detail Start -->
+      <h2 id='validate-aggregate-policy-v2-api'>Validate Aggregate Policy V2 API</h2>
+      <p>
+        This API will allows Partner to validate aggregate policy request on our portal. In request payload it expects
+        all required main attributes along with other attributes required for a particular product . Attributes and
+        validations on those attributes required for a product policy creation are shared in API specs shared via email.
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">[</span><span class="w">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"product"</span><span class="p">:</span><span class="s2">"phone-protection"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1992-01-23"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kaisar Wiranegara"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365566"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"365681"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"premium"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"package_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combined"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+6200000000000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">"a6f496ab-e2cc-4308-849e-50a4301ae321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"vehicle_year"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"chassis_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">MH3RG5610KK003293</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"></span>
+        </code>
+      </code>
+      </pre>
       <blockquote>
         <p>The above code snippet returns would return:</p>
       </blockquote>
-      <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ref1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"application_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APP-000000XXX"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"document_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://sampledomain.com/pid.html"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"policy_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000XXXX"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"issue_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-16 07:37:38"</span><span class="w">
-</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Valid request"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span>
+        </code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>HTTP Method</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/v2/validateaggregatepolicy/</td>
+            <td>POST</td>
+            <td>Send product creation request data to validate aggregate policy data</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>Some Common mandatory fields</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>package_code</td>
+            <td>name of package code</td>
+            <td>Yes</td>
+            <td>string, package code should be one of the list of package codes specified in api specs</td>
+          </tr>
+          <tr>
+            <td>reference_id</td>
+            <td>Unique id</td>
+            <td>Yes</td>
+            <td>string, unique id for each policy</td>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td>customer</td>
+            <td>Yes</td>
+            <td>string, minimumlegth = 3 </td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>There can be additional mandatory and not mandatory attributes for policy request validation depending
+          on product. Here is list of attributes for product bike-protection</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>Validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>dob</td>
+            <td>Insured's date of birth</td>
+            <td>Yes</td>
+            <td>string, Should be in the following format: YYYY-MM-DD. The age of user should be between 17-60 years.
+              This date should be less than the current date.</td>
+          </tr>
+          <tr>
+            <td>chasis_number</td>
+            <td>Chasis Number</td>
+            <td>Yes</td>
+            <td>string, can be used up to 4 active policy per chasis number</td>
+          </tr>
+          <tr>
+            <td>vehicle_year</td>
+            <td>Year in which vehicle was brought</td>
+            <td>Yes</td>
+            <td>int, current year and vehicle year shouldn't have a gap of more than 7 years</td>
+          </tr>
+          <tr>
+            <td>brand</td>
+            <td>Brand</td>
+            <td>Yes</td>
+            <td>int, brand id</td>
+          </tr>
+          <tr>
+            <td>model</td>
+            <td>Model</td>
+            <td>Yes</td>
+            <td>int, model id</td>
+          </tr>
+          <tr>
+            <td>premium</td>
+            <td>Premium of policy</td>
+            <td>No</td>
+            <td>int, should match package's premium if value is not 0</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
 
-</span></code></pre>
-      <p>Check the statuses of given policies</p>
-      <h3 id='definition-2'>Definition</h3>
+      <!-- END Point Detail Start -->
+      <h2 id='policy-status-v2-api'>Policy Status V2 API</h2>
+      <p>
+        This API will allow partner to check status of particular policy creation requests
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+          <code><span class="p">{</span><span class="w">
+            </span><span class="s2">"ids"</span><span class="p">:</span><span class="s2">[</span><span class="w">
+            </span><span class="s2">"8695b5affd6b10ec7116f97cce745af508698aea"</span><span class="w">
+            </span><span class="s2">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span></code>
+      </pre>
+      <blockquote>
+        <p>The above code snippet returns would return:</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">[</span><span class="w">
+          <code><span class="p">{</span><span class="w">
+            </span><span class="s2">"ref"</span><span class="p">:</span><span class="s2">"99fc4293d19f1e8533d52553240425b5f04925c9"</span><span class="w">
+            </span><span class="s2">"application_no"</span><span class="p">:</span><span class="w"></span><span class="p">"APP-010945796"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"document_url"</span><span class="p">:</span><span class="w"></span><span class="p">"https://sample.com/testing/99fc4293d19f1e8533d50425b5f04925c9/APP.pdf"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"policy_no"</span><span class="p">:</span><span class="w"></span><span class="p">"_"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status_code"</span><span class="p">:</span><span class="w"></span><span class="p">2,</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"></span><span class="p">"COMPLETED"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"issue_date"</span><span class="p">:</span><span class="w"></span><span class="p">"2020-04-28 06:02:01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"></span><span class="p">"",</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"partner_ref"</span><span class="p">:</span><span class="w"></span><span class="p">"csp_0000014",</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"product_key"</span><span class="p">:</span><span class="w"></span><span class="p">"bike-protection",</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"expiry_date"</span><span class="p">:</span><span class="w"></span><span class="p">"2020-06-27 16:59:59",</span><span class="p">,</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span></code></span></code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
       <table>
         <thead>
           <tr>
@@ -3438,10 +4164,188 @@
           <tr>
             <td>/api/v2/policystatus/</td>
             <td>POST</td>
-            <td>Check statuses of given policies</td>
+            <td>Check Statuses of given policies</td>
           </tr>
         </tbody>
       </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>An array of reference ids is mandatory parameter</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ids</td>
+            <td>ref_id for which policy status is to be checked</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
+
+
+      <!-- END Point Detail Start -->
+      <h2 id='cancellation-policy-v2-api'>Cancellation Policy V2 API</h2>
+      <p>
+        This API will allow partner to cancel a particular policy (Only possible if policy is in COMPLETED state). For
+        eg if wrong policy is created
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+          <code><span class="p">{</span><span class="w">
+            </span><span class="s2">"execution_date"</span><span class="p">:</span><span class="s2">"2020-03-03 16:00:00"</span><span class="w">
+            </span><span class="s2">"reason"</span><span class="p">:</span><span class="s2">"Asked by customer"</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="s2">"john.doe@email.com"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span></code>
+      </pre>
+      <blockquote>
+        <p>The above code snippet returns would return:</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+            </span><span class="s2">"closure_id"</span><span class="p">:</span><span class="s2">15</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span></code></span></code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>HTTP Method</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/v2/cancellation/<span class="o">&lt;</span>ref_id<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Cancel a given policy</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>An array of reference ids is mandatory parameter</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>execution_date</td>
+            <td>execution date for cancel/terminate request</td>
+            <td>yes</td>
+            <td>string, date time YYYY-MM-DD HH:MMSS</td>
+          </tr>
+          <tr>
+            <td>reason</td>
+            <td>reason for cancel/terminate</td>
+            <td>no</td>
+            <td>string</td>
+          </tr>
+          <tr>
+            <td>user</td>
+            <td>email_id of user</td>
+            <td>no</td>
+            <td>string</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
+
+
+
+      <h2 id='termination-policy-v2-api'>Termination Policy V2 API</h2>
+      <p>
+        This API will allow partner to terminate a particular policy (Only possible if policy is in COMPLETED state).
+        For eg if wrong policy is created
+      </p>
+      <p><b>Example for Product "bike-protection"</b></p>
+      <blockquote>
+        <p>Sample JSON Request Body</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+          <code><span class="p">{</span><span class="w">
+            </span><span class="s2">"execution_date"</span><span class="p">:</span><span class="s2">"2020-03-03 16:00:00"</span><span class="w">
+            </span><span class="s2">"reason"</span><span class="p">:</span><span class="s2">"Asked by customer"</span><span class="w">
+            </span><span class="s2">"user"</span><span class="p">:</span><span class="s2">"john.doe@email.com"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span></code>
+      </pre>
+      <blockquote>
+        <p>The above code snippet returns would return:</p>
+      </blockquote>
+      <pre class="highlight json tab-json">
+        <code><span class="p">{</span><span class="w">
+            </span><span class="s2">"closure_id"</span><span class="p">:</span><span class="s2">15</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span></code></span></code>
+      </pre>
+      <h3 id='definition'>Definition</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Endpoint</th>
+            <th>HTTP Method</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/api/v2/termination/<span class="o">&lt;</span>ref_id<span class="o">&gt;</span></td>
+            <td>POST</td>
+            <td>Terminate a given policy</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id='json-request-body-data'>JSON Request Body Data:</h3>
+      <p><strong>An array of reference ids is mandatory parameter</strong></p>
+      <table>
+        <thead>
+          <tr>
+            <th>JSON Attribute</th>
+            <th>Definition</th>
+            <th>Required</th>
+            <th>validation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>execution_date</td>
+            <td>execution date for cancel/terminate request</td>
+            <td>yes</td>
+            <td>string, date time YYYY-MM-DD HH:MMSS</td>
+          </tr>
+          <tr>
+            <td>reason</td>
+            <td>reason for cancel/terminate</td>
+            <td>no</td>
+            <td>string</td>
+          </tr>
+          <tr>
+            <td>user</td>
+            <td>email_id of user</td>
+            <td>no</td>
+            <td>string</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- END Point Detail End -->
+
 
       <h1 id='claims'>API References Claims</h1>
       <p>
